@@ -29,6 +29,15 @@
 \usepackage{mathtools}
 \usepackage{tikz}
 
+\usetikzlibrary{arrows,external}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.10}
+\usepackage[detect-family]{siunitx}
+\usepackage[eulergreek]{sansmath}
+\sisetup{text-sf=\sansmath}
+\usepackage{relsize}
+
+
 \graphicspath{{figures/}}
 
 
@@ -223,6 +232,46 @@
 
 
 \section{De normale verdeling}
+
+\begin{frame}{Representatie van veel metingen}
+  Meetwaardes:
+  \begin{center}
+    \input{scripts/slide-representaties-numbers.out}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Representatie van veel metingen}
+  Getallenlijn:
+  \begin{center}
+    \begin{tikzpicture}
+      \draw[thick] (-5, 0) -- (5, 0);
+      \path (0, 35pt) -- (0, -20pt);
+      \input{scripts/slide-representaties-getallenlijn.out}
+    \end{tikzpicture}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Representatie van veel metingen}
+  Histogram:
+  \begin{center}
+    \input{scripts/slide-representaties-histogram-1}
+  \end{center}
+\end{frame}
+
+\begin{frame}{Limietverdeling}
+  \begin{center}
+    \only<1>{\input{scripts/slide-representaties-histogram-N-1}}
+
+    \only<2>{\input{scripts/slide-representaties-histogram-N-2}}
+
+    \only<3>{\input{scripts/slide-representaties-histogram-N-3}}
+
+    \only<4>{\input{scripts/slide-representaties-histogram-N-4}}
+
+    \only<5>{\input{scripts/slide-representaties-histogram-N-5}}
+
+  \end{center}
+\end{frame}
 
 
 \section*{Samenvatting}
