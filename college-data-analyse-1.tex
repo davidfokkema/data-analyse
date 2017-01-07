@@ -1,5 +1,8 @@
 \documentclass{beamer}
 
+% \documentclass[draft]{beamer}
+% \includeonlyframes{wip}
+
 % This file is a solution template for:
 
 % - Giving a talk on some subject.
@@ -22,6 +25,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage{times}
 \usepackage[T1]{fontenc}
+
+\usepackage{mathtools}
+\usepackage{tikz}
 
 \graphicspath{{figures/}}
 
@@ -95,6 +101,125 @@
 
 
 \section{Onzekerheden}
+
+\begin{frame}{Foutenberekening}
+  \begin{itemize}
+    \item Vorig jaar: foutenberekening
+    \item Onzekerheden uit verschillende bronnen combineren tot totale onzekerheid
+    \item Voorbeeld:
+    \begin{equation*}
+        P = \frac{U^2}{R} \qquad
+        \visible<1>
+        {\mathrlap{\delta P = \sqrt{\left(\frac{\partial P}{\partial U}\delta U\right)^2 + \left(\frac{\partial P}{\partial R}\delta R\right)^2}}}
+        \visible<2>
+        {\frac{\delta P}{P} = \sqrt{\left(2\frac{\delta U}{U}\right)^2 + \left(\frac{\delta R}{R}\right)^2}}
+    \end{equation*}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Onzekerheid verkleinen}
+  Hoe verklein je de onzekerheid in een experiment?
+  \begin{itemize}
+    \item nauwkeuriger meten
+    \item \alert{vaker} meten!
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Vaker meten (1)}
+  Geeft een nauwkeurige schatting van de werkelijke waarde $X$
+  \begin{center}
+    \begin{tikzpicture}
+      \draw[thick] (-5, 0) -- (5, 0);
+      \path (0, 30pt) -- (0, -30pt);
+      \only<2>{\input{scripts/slide-vaakmeten-gemiddelde-1.out}}
+      \only<3>{\input{scripts/slide-vaakmeten-gemiddelde-2.out}}
+      \only<4>{\input{scripts/slide-vaakmeten-gemiddelde-3.out}}
+      \only<5>{\input{scripts/slide-vaakmeten-gemiddelde-4.out}}
+      \only<6>{\input{scripts/slide-vaakmeten-gemiddelde-5.out}}
+    \end{tikzpicture}
+  \end{center}
+  \visible<6>
+  {Goede schatter is het gemiddelde $\bar x$:
+  \begin{equation*}
+    \bar x = \frac{1}{N}\sum_{i=1}^{N} x_i.
+  \end{equation*}}
+\end{frame}
+
+\begin{frame}{Vaker meten (2)}
+  Geeft een nauwkeurige schatting van de onzekerheid op iedere meting
+  \begin{center}
+    \begin{tikzpicture}
+      \draw[thick] (-5, 0) -- (5, 0);
+      \path (0, 35pt) -- (0, -35pt);
+      \only<2>{\input{scripts/slide-vaakmeten-stddev-1.out}}
+      \only<3>{\input{scripts/slide-vaakmeten-stddev-2.out}}
+      \only<4>{\input{scripts/slide-vaakmeten-stddev-3.out}}
+      \only<5>{\input{scripts/slide-vaakmeten-stddev-4.out}}
+      \only<6->{\input{scripts/slide-vaakmeten-stddev-5.out}}
+    \end{tikzpicture}
+  \end{center}
+  \visible<6>
+  {Goede schatter is de standaarddeviatie $\sigma_x$:
+  \begin{equation*}
+    \sigma_x = \sqrt{\frac{1}{N-1}\sum_{i=1}^{N}(x_i - \bar x)^2}.
+  \end{equation*}}
+\end{frame}
+
+\begin{frame}{Vaker meten (3)}
+  Geeft een nauwkeurige schatting van de onzekerheid van de schatting van de werkelijke waarde
+  \begin{center}
+    \begin{tikzpicture}
+      \draw[thick] (-5, 0) -- (5, 0);
+      \path (0, 30pt) -- (0, -30pt);
+      \only<2>{\input{scripts/slide-vaakmeten-gemiddelde-stdmean-1.out}}
+      \only<3>{\input{scripts/slide-vaakmeten-gemiddelde-stdmean-2.out}}
+      \only<4>{\input{scripts/slide-vaakmeten-gemiddelde-stdmean-3.out}}
+      \only<5>{\input{scripts/slide-vaakmeten-gemiddelde-stdmean-4.out}}
+      \only<6>{\input{scripts/slide-vaakmeten-gemiddelde-stdmean-5.out}}
+      \only<7>{\input{scripts/slide-vaakmeten-gemiddelde-stdmean-6.out}}
+    \end{tikzpicture}
+  \end{center}
+  \visible<7>
+  {Goede schatter is de standaarddeviatie van het gemiddelde $\sigma_{\bar x}$:
+  \begin{equation*}
+    \sigma_{\bar x} = \frac{\sigma_x}{\sqrt N}.
+  \end{equation*}}
+\end{frame}
+
+\begin{frame}{Maar\dots}
+  \visible<2->{Hoe kan dit?}
+  \begin{center}
+    \begin{tikzpicture}
+      \draw[thick] (-5, 0) -- (5, 0);
+      \path (0, 35pt) -- (0, -20pt);
+      \input{scripts/slide-vaakmeten-gemiddelde-5.out}
+      \only<2->{\draw[red] (-4, 10pt) -- +(0, -20pt) node[below] {$X$};}
+      \only<3->{\draw[<->,red] (-4, 15pt) -- node[above] {systematische fout} (1.0238117778, 15pt);}
+    \end{tikzpicture}
+  \end{center}
+  \visible<4>
+  {Goede schatter voor de totale fout:
+  \begin{equation*}
+    \delta x_\mathrm{tot} = \sqrt{(\delta x_\mathrm{ran})^2 + (\delta x_\mathrm{sys})^2}.
+  \end{equation*}}
+\end{frame}
+
+\begin{frame}{Samenvattend}
+  \begin{itemize}
+    \item schatter werkelijke waarde:
+    \begin{equation*}
+      \bar x = \frac{1}{N}\sum_{i=1}^{N} x_i.
+    \end{equation*}
+    \item schatter onzekerheid van individuele meting:
+    \begin{equation*}
+      \sigma_x = \sqrt{\frac{1}{N-1}\sum_{i=1}^{N}(x_i - \bar x)^2}.
+    \end{equation*}
+    \item schatter onzekerheid op schatter werkelijke waarde:
+    \begin{equation*}
+      \sigma_{\bar x} = \frac{\sigma_x}{\sqrt N}.
+    \end{equation*}
+  \end{itemize}
+\end{frame}
 
 
 \section{De normale verdeling}
