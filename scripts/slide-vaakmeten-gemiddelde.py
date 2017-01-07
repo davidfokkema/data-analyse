@@ -1,7 +1,9 @@
 import random
 
+import numpy as np
 
-def make_figure(N, suffix, show_mean=False):
+
+def make_figure(N, suffix, show_mean=False, show_stddev_mean=False):
     random.seed(5)
 
     xs = []
@@ -19,6 +21,11 @@ def make_figure(N, suffix, show_mean=False):
             f.write(r"\draw[red] (%.3f, 10pt) -- +(0, -20pt) node[below] {$\bar x$};" % mean)
         else:
             f.write(r"\draw[red] (%.3f, 10pt) node[above] {$X$?} -- +(0, -20pt);" % mean)
+        if show_stddev_mean:
+            xs = np.array(xs)
+            std = xs.std() / np.sqrt(N)
+            f.write(r"\draw[<->,red] (%.3f, -15pt) -- node[below] {$\sigma_{\bar x}$} (%.3f, -15pt);" % (xs.mean() - std, xs.mean() + std))
+
 
 
 if __name__ == '__main__':
@@ -34,3 +41,4 @@ if __name__ == '__main__':
     make_figure(48, 'stdmean-4', show_mean=False)
     make_figure(49, 'stdmean-5', show_mean=False)
     make_figure(50, 'stdmean-6', show_mean=False)
+    make_figure(50, 'stdmean-7', show_mean=False, show_stddev_mean=True)

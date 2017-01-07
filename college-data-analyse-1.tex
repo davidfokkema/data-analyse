@@ -119,8 +119,10 @@
     \begin{equation*}
         P = \frac{U^2}{R} \qquad
         \visible<1>
-        {\mathrlap{\delta P = \sqrt{\left(\frac{\partial P}{\partial U}\delta U\right)^2 + \left(\frac{\partial P}{\partial R}\delta R\right)^2}}}
+        {\mathrlap{\delta P = \ ?}}
         \visible<2>
+        {\mathrlap{\delta P = \sqrt{\left(\frac{\partial P}{\partial U}\delta U\right)^2 + \left(\frac{\partial P}{\partial R}\delta R\right)^2}}}
+        \visible<3>
         {\frac{\delta P}{P} = \sqrt{\left(2\frac{\delta U}{U}\right)^2 + \left(\frac{\delta R}{R}\right)^2}}
     \end{equation*}
   \end{itemize}
@@ -130,12 +132,12 @@
   Hoe verklein je de onzekerheid in een experiment?
   \begin{itemize}
     \item nauwkeuriger meten
-    \item \alert{vaker} meten!
+    \item<2-> \alert{vaker} meten!
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Vaker meten (1)}
-  Geeft een nauwkeurige schatting van de werkelijke waarde $X$
+  \dots geeft een nauwkeurige schatting van de werkelijke waarde $X$
   \begin{center}
     \begin{tikzpicture}
       \draw[thick] (-5, 0) -- (5, 0);
@@ -155,7 +157,7 @@
 \end{frame}
 
 \begin{frame}{Vaker meten (2)}
-  Geeft een nauwkeurige schatting van de onzekerheid op iedere meting
+  \dots geeft een nauwkeurige schatting van de onzekerheid op \alert{individuele} meting
   \begin{center}
     \begin{tikzpicture}
       \draw[thick] (-5, 0) -- (5, 0);
@@ -175,7 +177,7 @@
 \end{frame}
 
 \begin{frame}{Vaker meten (3)}
-  Geeft een nauwkeurige schatting van de onzekerheid van de schatting van de werkelijke waarde
+  \dots geeft een nauwkeurige schatting van de onzekerheid van de schatting van de werkelijke waarde
   \begin{center}
     \begin{tikzpicture}
       \draw[thick] (-5, 0) -- (5, 0);
@@ -186,9 +188,10 @@
       \only<5>{\input{scripts/slide-vaakmeten-gemiddelde-stdmean-4.out}}
       \only<6>{\input{scripts/slide-vaakmeten-gemiddelde-stdmean-5.out}}
       \only<7>{\input{scripts/slide-vaakmeten-gemiddelde-stdmean-6.out}}
+      \only<8>{\input{scripts/slide-vaakmeten-gemiddelde-stdmean-7.out}}
     \end{tikzpicture}
   \end{center}
-  \visible<7>
+  \visible<8>
   {Goede schatter is de standaarddeviatie van het gemiddelde $\sigma_{\bar x}$:
   \begin{equation*}
     \sigma_{\bar x} = \frac{\sigma_x}{\sqrt N}.
@@ -196,7 +199,7 @@
 \end{frame}
 
 \begin{frame}{Maar\dots}
-  \visible<2->{Hoe kan dit?}
+  \visible<2->{Kan dit gebeuren?} \visible<3->{Ja, helaas\dots}
   \begin{center}
     \begin{tikzpicture}
       \draw[thick] (-5, 0) -- (5, 0);
@@ -217,15 +220,15 @@
   \begin{itemize}
     \item schatter werkelijke waarde:
     \begin{equation*}
-      \bar x = \frac{1}{N}\sum_{i=1}^{N} x_i.
+      \bar x = \frac{1}{N}\sum_{i=1}^{N} x_i. \qquad \text{(gemiddelde)}
     \end{equation*}
     \item schatter onzekerheid van individuele meting:
     \begin{equation*}
-      \sigma_x = \sqrt{\frac{1}{N-1}\sum_{i=1}^{N}(x_i - \bar x)^2}.
+      \sigma_x = \sqrt{\frac{1}{N-1}\sum_{i=1}^{N}(x_i - \bar x)^2}. \qquad \text{(standaarddeviatie)}
     \end{equation*}
     \item schatter onzekerheid op schatter werkelijke waarde:
     \begin{equation*}
-      \sigma_{\bar x} = \frac{\sigma_x}{\sqrt N}.
+      \sigma_{\bar x} = \frac{\sigma_x}{\sqrt N}. \qquad \text{(stddev van het gemiddelde)}
     \end{equation*}
   \end{itemize}
 \end{frame}
