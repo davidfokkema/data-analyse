@@ -276,6 +276,21 @@
   \end{center}
 \end{frame}
 
+\begin{frame}[label=wip]{Normale verdeling}
+  \begin{center}
+    \begin{tikzpicture}[yscale=3]
+      \draw (-4, 0) -- (4, 0);
+      \draw plot[domain=-3:3,samples=50,smooth] (\x, {exp(-(\x*\x))});
+      \fill[blue, opacity=.5] (-1, 0) -- plot[domain=-1:-.5,samples=50,smooth] (\x, {exp(-(\x*\x))}) -- (-.5, 0);
+      \draw[red] (0, 1.1) node[above] {$X$} -- (0, -.1);
+      \draw[<->,red] (0, 0.6065) -- node[above] {$\sigma$} (0.707, 0.6065);
+    \end{tikzpicture}
+  \end{center}
+  \begin{equation*}
+    G_{X,\sigma}(x) = \frac{1}{\sigma\sqrt{2\pi}}\,e^{-(x - X)^2 / 2\sigma^2}
+  \end{equation*}
+\end{frame}
+
 
 \section*{Samenvatting}
 
