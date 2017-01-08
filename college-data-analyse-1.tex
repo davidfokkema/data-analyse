@@ -276,19 +276,52 @@
   \end{center}
 \end{frame}
 
-\begin{frame}[label=wip]{Normale verdeling}
+\begin{frame}{Normale verdeling}
   \begin{center}
     \begin{tikzpicture}[yscale=3]
-      \draw (-4, 0) -- (4, 0);
+      % axis
+      \draw[thick,->] (-4, 0) -- (4, 0) node[right] {$x$};
+      \draw[thick,->] (-4, 0) -- +(0, 1.3) node[above] {$p$};
+      % function
       \draw plot[domain=-3:3,samples=50,smooth] (\x, {exp(-(\x*\x))});
-      \fill[blue, opacity=.5] (-1, 0) -- plot[domain=-1:-.5,samples=50,smooth] (\x, {exp(-(\x*\x))}) -- (-.5, 0);
-      \draw[red] (0, 1.1) node[above] {$X$} -- (0, -.1);
-      \draw[<->,red] (0, 0.6065) -- node[above] {$\sigma$} (0.707, 0.6065);
+      % labels
+      \visible<2->{\draw[red] (0, 1.1) node[above] {$X$} -- (0, -.1);}
+      \draw<3->[<->,red] (0, 0.6065) -- node[above] {$\sigma$} (0.707, 0.6065);
+      % region
+      \visible<4->{
+        \fill[blue, opacity=.5] (-1.5, 0) -- plot[domain=-1.5:-.5,samples=50,smooth] (\x, {exp(-(\x*\x))}) -- (-.5, 0);
+        \node[anchor=base] at (-1.5, -4pt) {$a$};
+        \node[anchor=base] at (-.5, -4pt) {$b$};
+        \draw[align=left,->] (-2, .8) node[above] {opp. is kans op\\ meting tussen\\ $a$ en $b$} to[out=-90] (-1, .15);
+      }
     \end{tikzpicture}
   \end{center}
   \begin{equation*}
     G_{X,\sigma}(x) = \frac{1}{\sigma\sqrt{2\pi}}\,e^{-(x - X)^2 / 2\sigma^2}
   \end{equation*}
+\end{frame}
+
+\begin{frame}{Normale verdeling}
+  \begin{center}
+    \begin{tikzpicture}[yscale=3]
+      % axis
+      \draw[thick,->] (-4, 0) -- (4, 0) node[right] {$x$};
+      \draw[thick,->] (-4, 0) -- +(0, 1.3) node[above] {$p$};
+      % function
+      \draw plot[domain=-3:3,samples=50,smooth] (\x, {exp(-(\x*\x))});
+      % labels
+      \draw[red] (0, 1.1) node[above] {$X$} -- (0, -.1);
+      \draw<1>[red] (0.707, 1.1) -- (0.707, -.1) node[below] {$X + \sigma$};
+      \draw<1>[red] (-0.707, 1.1) -- (-0.707, -.1) node[below] {$X - \sigma$};
+      \draw<2>[red] (1.414, 1.1) -- (1.414, -.1) node[below] {$X + 2\sigma$};
+      \draw<2>[red] (-1.414, 1.1) -- (-1.414, -.1) node[below] {$X - 2\sigma$};
+      % region
+      \fill<1>[blue, opacity=.5] (-0.707, 0) -- plot[domain=-0.707:0.707,samples=30,smooth] (\x, {exp(-(\x*\x))}) -- (0.707, 0);
+      \fill<2>[blue, opacity=.5] (-1.414, 0) -- plot[domain=-1.414:1.414,samples=30,smooth] (\x, {exp(-(\x*\x))}) -- (1.414, 0);
+    \end{tikzpicture}
+  \end{center}
+  \only<1>{Kans van \SI{68}{\percent} dat meting binnen \SI{1}{\sigma} van de werkelijke waarde valt.}
+  \only<2>{Kans van \SI{95}{\percent} dat meting binnen \SI{2}{\sigma} van de werkelijke waarde valt.}
 \end{frame}
 
 
