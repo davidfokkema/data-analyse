@@ -103,12 +103,6 @@
 % - Talk about 30s to 2min per frame. So there should be between about
 %   15 and 30 frames, all told.
 
-\section{Inleiding}
-
-\begin{frame}{}
-\end{frame}
-
-
 \section{Onzekerheden}
 
 \begin{frame}{Foutenberekening}
@@ -277,6 +271,14 @@
 \end{frame}
 
 \begin{frame}{Normale verdeling}
+  \begin{itemize}
+    \item Meetwaardes onder invloed van veel kleine toevallige fouten zijn \alert{normaal verdeeld}
+    \item<2-> Bijvoorbeeld: periode van een slinger, lengtes van leerlingen in een klas, wandeltijd van het station naar het practicum bij droog weer
+    \item<3-> Niet normaal verdeeld: maximumtemperatuur op 1 januari over een groot aantal jaren (klimaatverandering), levensduur van een instabiel deeltje (exponentieel), aantal auto's dat passeert bij de afslag A4 $\rightarrow$ A9 tussen 4:00 en 4:01 over een groot aantal dagen (Poisson)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Normale verdeling}
   \begin{center}
     \begin{tikzpicture}[yscale=3]
       % axis
@@ -359,6 +361,18 @@
     Het \alert{gemiddelde} en de \alert{standaarddeviatie van het gemiddelde} zijn de beste schatters voor de werkelijke waarde en de onzekerheid (\SI{68}{\percent})
   \end{itemize}
 
+  \uncover<2->{
+  \vskip0pt plus.5fill
+  \begin{itemize}
+  \item
+    Niet behandeld (zie Taylor):
+    \begin{itemize}
+    \item
+      Principle of maximum likelihood
+    \item
+      Wiskundige verantwoording van het gemiddelde en de standaarddeviatie als beste schatters voor de werkelijke waarde en de onzekerheid
+    \end{itemize}}
+  \end{itemize}
 \end{frame}
 
 
