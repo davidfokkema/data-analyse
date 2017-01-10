@@ -1,0 +1,132 @@
+% \usepackage{tikz}
+% \usetikzlibrary{arrows,external}
+% \usepackage{pgfplots}
+% \pgfplotsset{compat=1.10}
+% \usepackage[detect-family]{siunitx}
+% \usepackage[eulergreek]{sansmath}
+% \sisetup{text-sf=\sansmath}
+% \usepackage{relsize}
+%
+    \tikzsetnextfilename{externalized-slide-errorfunction}
+\pgfkeysifdefined{/artist/width}
+    {\pgfkeysgetvalue{/artist/width}{\defaultwidth}}
+    {\def\defaultwidth{ .67\linewidth }}
+%
+%
+\begin{sansmath}
+\begin{tikzpicture}[
+        font=\sffamily,
+        every pin/.style={inner sep=2pt, font={\sffamily\smaller}},
+        every label/.style={inner sep=2pt, font={\sffamily\smaller}},
+        every pin edge/.style={<-, >=stealth', shorten <=2pt},
+        pin distance=2.5ex,
+    ]
+    \begin{axis}[
+            axis background/.style={  },
+            xmode=normal,
+            ymode=normal,
+            width=\defaultwidth,
+            scale only axis,
+            axis equal=false,
+            %
+            title={  },
+            %
+            xlabel={ grenzen [$\sigma$] },
+            ylabel={ kans waarde binnen grenzen [\%] },
+            %
+            xmin={ 0 },
+            xmax={ 4 },
+            ymin={ 0 },
+            ymax={ 1 },
+            %
+            xtick={ 0, 0.674, 1.0, 2.0, 3.0, 4.0 },
+            ytick={ 0, 0.5, 0.68, 0.95, 1.0 },
+            xticklabel style={  },
+            yticklabel style={  },
+            %
+            tick align=outside,
+            max space between ticks=40,
+            every tick/.style={},
+            axis on top,
+            point meta min={  },
+            point meta max={  },
+            colormap={coolwarm}{
+                rgb255=( 59, 76,192)
+                rgb255=( 98,130,234)
+                rgb255=(141,176,254)
+                rgb255=(184,208,249)
+                rgb255=(221,221,221)
+                rgb255=(245,196,173)
+                rgb255=(244,154,123)
+                rgb255=(222, 96, 77)
+                rgb255=(180,  4, 38)},
+            colormap={whiteblack}{gray=(1) gray=(0)},
+            colormap={blackwhite}{gray=(0) gray=(1)},
+        ]
+
+
+    \draw[gray] (axis cs:0, .5) -| (axis cs:.674, 0);
+    \draw[gray] (axis cs:0, .68) -| (axis cs:1, 0);
+    \draw[gray] (axis cs:0, .954) -| (axis cs:2, 0);
+
+
+    % Draw series plot
+    \addplot[no markers,solid] coordinates {
+            (0.0, 0.0)
+            (0.08, 0.063762744028)
+            (0.16, 0.127118925783)
+            (0.24, 0.189669743396)
+            (0.32, 0.251031669447)
+            (0.4, 0.310843483221)
+            (0.48, 0.368772606968)
+            (0.56, 0.424520562302)
+            (0.64, 0.477827400614)
+            (0.72, 0.528475004441)
+            (0.8, 0.576289202833)
+            (0.88, 0.621140690447)
+            (0.96, 0.662944785066)
+            (1.04, 0.701660099338)
+            (1.12, 0.737286237915)
+            (1.2, 0.769860659557)
+            (1.28, 0.799454864091)
+            (1.36, 0.826170076106)
+            (1.44, 0.850132600931)
+            (1.52, 0.871489024362)
+            (1.6, 0.890401416601)
+            (1.68, 0.907042684273)
+            (1.76, 0.921592193425)
+            (1.84, 0.934231762682)
+            (1.92, 0.945142100592)
+            (2.0, 0.954499736104)
+            (2.08, 0.96247446713)
+            (2.16, 0.969227330432)
+            (2.24, 0.974909077128)
+            (2.32, 0.979659122663)
+            (2.4, 0.983604928151)
+            (2.48, 0.986861761729)
+            (2.56, 0.989532783673)
+            (2.64, 0.991709397278)
+            (2.72, 0.993471808368)
+            (2.8, 0.994889739339)
+            (2.88, 0.99602324829)
+            (2.96, 0.996923609577)
+            (3.04, 0.997634218514)
+            (3.12, 0.9981914896)
+            (3.2, 0.998625724124)
+            (3.28, 0.998961929134)
+            (3.36, 0.999220575275)
+            (3.44, 0.999418285813)
+            (3.52, 0.999568453201)
+            (3.6, 0.99968178282)
+            (3.68, 0.999766766046)
+            (3.76, 0.999830086643)
+            (3.84, 0.99987696569)
+            (3.92, 0.999911451031)
+            (4.0, 0.999936657516)
+    };
+
+
+
+    \end{axis}
+\end{tikzpicture}
+\end{sansmath}
