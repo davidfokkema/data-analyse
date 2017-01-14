@@ -42,6 +42,7 @@
 
 
 \renewcommand{\leadsto}{\ \rightarrow\ }
+\newcommand{\tsum}{\textstyle\sum}
 
 
 \title{Statistische data-analyse 2}
@@ -165,6 +166,96 @@
     \frac{\partial g}{\partial B} = 2\sum x_i(y_i - A - Bx_i) = 0 \leadsto \alert{\textstyle\sum x_i y_i - A\textstyle\sum x_i - B\textstyle\sum x_i^2 = 0}.
   \end{gather*}
   Twee vergelijkingen, twee onbekenden.
+\end{frame}
+
+\begin{frame}{Lineaire Regressie}
+  Oplossing:
+  \begin{gather*}
+    A = \frac{\tsum x^2\tsum y - \tsum x\tsum xy}{N\tsum x^2 - (\tsum x)^2}, \\[1em]
+    B = \frac{N\tsum xy - \tsum x\tsum y}{N\tsum x^2 - (\tsum x)^2}.
+  \end{gather*}
+  Ziet er misschien wat intimiderend uit, maar is eigenlijk eenvoudig uit te rekenen. En dan weet je de \emph{beste} lijn!
+\end{frame}
+
+\begin{frame}{Controle: Schatting Fout}
+  \begin{center}
+    \begin{tikzpicture}[scale=.6]
+      % axis
+      \draw[thick,->] (0, 0) -- (6, 0) node[right] {$x$};
+      \draw[thick,->] (0, 0) -- (0, 4) node[above] {$y$};
+      \draw[red] (0, 1) -- (6, 3.4);
+      \input{scripts/slide-fitten-van-lijn-3.out}
+      \path (4.66666666667, 2.1762050576) -- (4.66666666667, 2.86666666667) node[midway, right] {$\Delta y_i$};
+    \end{tikzpicture}
+  \end{center}
+  Als het verwachte verband inderdaad geldt, dan vormt de lijn de \alert{werkelijke waarden}, en zijn de metingen normaal verdeeld rondom die waardes. De afwijkingen $\Delta y_i = y_i - A - Bx_i$ zouden dan dus normaal verdeeld moeten zijn. We kunnen de standaarddeviatie dan vergelijken met de door ons geschatte meetfouten. Klopt dat? Fijn!
+\end{frame}
+
+\begin{frame}{Controle: Schatting Fout}
+  Gemiddelde:
+  \begin{equation*}
+    \bar x = \frac{1}{N}\sum x_i  \tag{0 parameters}
+  \end{equation*}
+  Standaarddeviatie normale verdeling:
+  \begin{equation*}
+    \sigma = \sqrt{\frac{1}{N-1}\sum(x_i - \bar x)^2} \tag{1 parameter}
+  \end{equation*}
+  Schatting meetonzekerheid:
+  \begin{equation*}
+    \sigma_y = \sqrt{\frac{1}{N-2}\sum(y_i - A - Bx_i)^2} \tag{2 parameters}
+  \end{equation*}
+  \pause
+  De factor $N - p$, met $p$ het aantal geschatte parameters, wordt nog belangrijk!
+\end{frame}
+
+\begin{frame}{Onzekerheden op $A$ en $B$}
+  \dots zijn direct uit te rekenen met behulp van foutenberekening uit jaar 1. Je neemt aan dat de fout op $x$ gelijk is aan nul. Je neemt alléén de fouten op $y$ mee:
+  \begin{gather*}
+    \sigma_A = \sigma_y\sqrt{\frac{\tsum x^2}{N\tsum x^2 - (\tsum x)^2}}, \\[1em]
+    \sigma_B = \sigma_y\sqrt{\frac{N}{N\tsum x^2 - (\tsum x)^2}}.
+  \end{gather*}
+\end{frame}
+
+\begin{frame}{Vollediger: Normale Verdeling}
+  Minimaliseer \alert{niet}:
+  \begin{equation*}
+    g = \sum(y_i - A - Bx_i)^2,
+  \end{equation*}
+  maar
+  \begin{equation*}
+    h = \frac{\sum(y_i - A - Bx_i)^2}{{\sigma_{y_i}}^2}.
+  \end{equation*}
+  Bij gelijke onzekerheden geldt
+  \begin{equation*}
+    h = \frac{1}{{\sigma_y}^2}\sum(y_i - A - Bx_i)^2,
+  \end{equation*}
+  en dat valt er uit bij gelijkstellen aan nul (zoals we tot nu toe gedaan hebben). Bij verschillende $\sigma_{y_i}$ moet je het netjes doen.
+\end{frame}
+
+\begin{frame}{Méér dan lijnen alleen}
+  Stelsel vergelijkingen met $A, B, \ldots$ is altijd oplosbaar als de vergelijkingen \alert{lineair} zijn. Hier kun je aan fitten:
+  \begin{equation*}
+    y = A + Bx + Cx^2 + Dx^3 + \ldots
+  \end{equation*}
+  \pause
+  En ook:
+  \begin{equation*}
+    y = A\sin x + B\cos x
+  \end{equation*}
+  \pause
+  Maar niet:
+  \begin{equation*}
+    y = A\cdot e^{Bx}
+  \end{equation*}
+  \pause
+  Daar staat tegenover dat je wel weer kunt \alert{lineariseren}:
+  \begin{equation*}
+    \ln y = \ln A + Bx  \qquad (y' = A' + Bx)
+  \end{equation*}
+\end{frame}
+
+\begin{frame}{De computer kan alles}
+  De computer is goed in dom rekenwerk, en kan verschillende waardes voor $A$ en $B$ blijven proberen, net zolang totdat de \emph{som van kwadraten} $h$ klein genoeg is! Dus óók functies die niet te fitten zijn met lineaire regressie (bv. $y = A\cdot e^{Bx}$) kun je zo alsnog fitten.
 \end{frame}
 
 \end{document}
