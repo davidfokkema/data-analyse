@@ -32,7 +32,7 @@
 \usetikzlibrary{arrows,external}
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.10}
-\usepackage[detect-family]{siunitx}
+\usepackage[detect-family,output-decimal-marker={,}]{siunitx}
 \usepackage[eulergreek]{sansmath}
 \sisetup{text-sf=\sansmath}
 \usepackage{relsize}
@@ -328,8 +328,72 @@
   Leuk zo'n test, maar de opmerking dat $\rchisq \approx 1$ is wel behoorlijk vaag. Kunnen we dat kwantificeren? Ja, maar dan moeten we kijken naar wat voor $\rchisq$-waardes we verwachten als we het experiment vaak herhalen en de hypothese klopt.
 \end{frame}
 
-\begin{frame}[label=wip]{$\chi^2$-verdeling}
+\begin{frame}{$\chi^2$-verdeling}
+  \begin{center}
+    \only<1>{\input{scripts/plot-chisq-1}}
+
+    \only<2>{\input{scripts/plot-chisq-2}}
+
+    \only<3>{\input{scripts/plot-chisq-3}}
+
+    \only<4>{\input{scripts/plot-chisq-4}}
+
+    \only<5>{\input{scripts/plot-chisq-5}}
+
+  \end{center}
+\end{frame}
+
+\begin{frame}{$\chi^2$-verdeling}
+  \begin{center}
+    \input{scripts/slide-chisq-histogram}
+  \end{center}
   Oppervlakte onder limietverdeling geeft weer de kans dat de gemeten waarde in dat gebied ligt.
+\end{frame}
+
+\begin{frame}{Eenzijdige overschrijdingskans}
+  Stel, je vindt $\rchisq = \num{2,0}$, bij een fit aan een lijn (2 parameters) en 10 meetpunten, dus 8 vrijheidsgraden. Dan is de kans maar \SI{4,2}{\percent} dat de hypothese klopt én je minstens zó'n slechte $\rchisq$ vindt. Hmm... geloven we dan eigenlijk wel dat de hypothese klopt?
+\end{frame}
+
+\begin{frame}{$\chi^2$-test}
+  Bepaal
+  \begin{equation*}
+    p = \text{Prob}(\rchisq \geq \rchisq_o)
+  \end{equation*}
+  met $\rchisq_o$ de gemeten $\rchisq$-waarde. Meestal wordt de hypothese verworpen als $p < \num{0,05}$. Je mag zelf kiezen, als je maar de $\rchisq$-waarde vermeldt, liefst met $p$-waarde. Zo kan iedereen je conclusie controleren.
+  \pause
+  Zie ook Appendix D in Taylor.
+\end{frame}
+
+
+\section*{Samenvatting}
+
+\begin{frame}{Samenvatting}
+
+  Vandaag behandeld:
+  % Keep the summary *very short*.
+  \begin{itemize}
+  \item
+    De kleinste-kwadraten methode om de meest waarschijnlijke parameters in een fit te bepalen
+  \item
+    Hoe goed de fit is, is te interpreteren door de gereduceerde $\chi^2$ te berekenen. Deze waarde komt gemiddeld uit rond 1, \alert{als de hypothese klopt}
+  \item
+    Gebruik de $p$-waarde om in te schatten hoe onwaarschijnlijk de gevonden $\rchisq$-waarde is
+  \end{itemize}
+
+  \uncover<2->{
+  \vskip0pt plus.5fill
+  \begin{itemize}
+  \item
+    Niet behandeld (zie Taylor):
+    \begin{itemize}
+    \item
+      Veel van de wiskundige afleidingen
+    \item
+      Wanneer mag je foutieve metingen verwerpen?
+    \item
+      Correlatie, binomiale verdeling en Poissonverdeling
+    \end{itemize}}
+  \end{itemize}
 \end{frame}
 
 \end{document}

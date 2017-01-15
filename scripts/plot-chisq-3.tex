@@ -1,0 +1,128 @@
+% \usepackage{tikz}
+% \usetikzlibrary{arrows,external}
+% \usepackage{pgfplots}
+% \pgfplotsset{compat=1.10}
+% \usepackage[detect-family]{siunitx}
+% \usepackage[eulergreek]{sansmath}
+% \sisetup{text-sf=\sansmath}
+% \usepackage{relsize}
+%
+    \tikzsetnextfilename{externalized-plot-chisq-3.tex}
+\pgfkeysifdefined{/artist/width}
+    {\pgfkeysgetvalue{/artist/width}{\defaultwidth}}
+    {\def\defaultwidth{ .67\linewidth }}
+%
+%
+\begin{sansmath}
+\begin{tikzpicture}[
+        font=\sffamily,
+        every pin/.style={inner sep=2pt, font={\sffamily\smaller}},
+        every label/.style={inner sep=2pt, font={\sffamily\smaller}},
+        every pin edge/.style={<-, >=stealth', shorten <=2pt},
+        pin distance=2.5ex,
+    ]
+    \begin{axis}[
+            axis background/.style={  },
+            xmode=normal,
+            ymode=normal,
+            width=\defaultwidth,
+            scale only axis,
+            axis equal=false,
+            %
+            title={  },
+            %
+            xlabel={ x },
+            ylabel={ y },
+            %
+            xmin={ 0 },
+            xmax={ 6 },
+            ymin={ 0 },
+            ymax={ 5 },
+            %
+            xtick={  },
+            ytick={  },
+            xticklabel style={  },
+            yticklabel style={  },
+            %
+            tick align=outside,
+            max space between ticks=40,
+            every tick/.style={},
+            axis on top,
+            point meta min={  },
+            point meta max={  },
+            colormap={coolwarm}{
+                rgb255=( 59, 76,192)
+                rgb255=( 98,130,234)
+                rgb255=(141,176,254)
+                rgb255=(184,208,249)
+                rgb255=(221,221,221)
+                rgb255=(245,196,173)
+                rgb255=(244,154,123)
+                rgb255=(222, 96, 77)
+                rgb255=(180,  4, 38)},
+            colormap={whiteblack}{gray=(1) gray=(0)},
+            colormap={blackwhite}{gray=(0) gray=(1)},
+        ]
+
+        
+
+
+    
+    % Draw series plot
+    \addplot[mark=*,mark options=white,only marks] coordinates {
+            (0.5, 1.5401308327)
+            (1.33333333333, 1.20336595314)
+            (2.16666666667, 1.8149382044)
+            (3.0, 1.93664247462)
+            (3.83333333333, 2.54599745735)
+            (4.66666666667, 3.04151123078)
+            (5.5, 2.86981424684)
+    };
+    
+
+    
+        % Draw y-error bars
+                \draw (axis cs:0.5, 1.2401308327) --
+                      (axis cs:0.5, 1.8401308327);
+                \draw (axis cs:1.33333333333, 0.903365953139) --
+                      (axis cs:1.33333333333, 1.50336595314);
+                \draw (axis cs:2.16666666667, 1.5149382044) --
+                      (axis cs:2.16666666667, 2.1149382044);
+                \draw (axis cs:3.0, 1.63664247462) --
+                      (axis cs:3.0, 2.23664247462);
+                \draw (axis cs:3.83333333333, 2.24599745735) --
+                      (axis cs:3.83333333333, 2.84599745735);
+                \draw (axis cs:4.66666666667, 2.74151123078) --
+                      (axis cs:4.66666666667, 3.34151123078);
+                \draw (axis cs:5.5, 2.56981424684) --
+                      (axis cs:5.5, 3.16981424684);
+    
+    % Draw series plot
+    \addplot[mark=o,only marks] coordinates {
+            (0.5, 1.5401308327)
+            (1.33333333333, 1.20336595314)
+            (2.16666666667, 1.8149382044)
+            (3.0, 1.93664247462)
+            (3.83333333333, 2.54599745735)
+            (4.66666666667, 3.04151123078)
+            (5.5, 2.86981424684)
+    };
+    
+
+    
+    % Draw series plot
+    \addplot[no markers,solid] coordinates {
+            (0.0, 1.0)
+            (6.0, 3.4)
+    };
+    
+
+    \node[,
+          below left=2pt
+        ]
+        at (rel axis cs:1,1)
+        { $\tilde\chi^2 = 1.0$ };
+
+    \end{axis}
+\end{tikzpicture}
+\end{sansmath}
