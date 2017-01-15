@@ -162,8 +162,8 @@
   \end{center}
   Minimaliseer $g=\sum\Delta y_i^2 = \sum(y_i - A - Bx_i)^2$:
   \begin{gather*}
-    \frac{\partial g}{\partial A} = 2\sum(y_i - A _ Bx_i) = 0 \leadsto \alert{\textstyle\sum y_i - AN - B\textstyle\sum x_i = 0}, \\
-    \frac{\partial g}{\partial B} = 2\sum x_i(y_i - A - Bx_i) = 0 \leadsto \alert{\textstyle\sum x_i y_i - A\textstyle\sum x_i - B\textstyle\sum x_i^2 = 0}.
+    \frac{\partial g}{\partial A} = 2\sum(y_i - A _ Bx_i) = 0 \leadsto \alert{\textstyle\sum y_i - AN - B\textstyle\sum x_i = 0} \\
+    \frac{\partial g}{\partial B} = 2\sum x_i(y_i - A - Bx_i) = 0 \leadsto \alert{\textstyle\sum x_i y_i - A\textstyle\sum x_i - B\textstyle\sum x_i^2 = 0}
   \end{gather*}
   Twee vergelijkingen, twee onbekenden.
 \end{frame}
@@ -171,8 +171,8 @@
 \begin{frame}{Lineaire Regressie}
   Oplossing:
   \begin{gather*}
-    A = \frac{\tsum x^2\tsum y - \tsum x\tsum xy}{N\tsum x^2 - (\tsum x)^2}, \\[1em]
-    B = \frac{N\tsum xy - \tsum x\tsum y}{N\tsum x^2 - (\tsum x)^2}.
+    A = \frac{\tsum x^2\tsum y - \tsum x\tsum xy}{N\tsum x^2 - (\tsum x)^2} \\[1em]
+    B = \frac{N\tsum xy - \tsum x\tsum y}{N\tsum x^2 - (\tsum x)^2}
   \end{gather*}
   Ziet er misschien wat intimiderend uit, maar is eigenlijk eenvoudig uit te rekenen. En dan weet je de \emph{beste} lijn!
 \end{frame}
@@ -211,8 +211,8 @@
 \begin{frame}{Onzekerheden op $A$ en $B$}
   \dots zijn direct uit te rekenen met behulp van foutenberekening uit jaar 1. Je neemt aan dat de fout op $x$ gelijk is aan nul. Je neemt alléén de fouten op $y$ mee:
   \begin{gather*}
-    \sigma_A = \sigma_y\sqrt{\frac{\tsum x^2}{N\tsum x^2 - (\tsum x)^2}}, \\[1em]
-    \sigma_B = \sigma_y\sqrt{\frac{N}{N\tsum x^2 - (\tsum x)^2}}.
+    \sigma_A = \sigma_y\sqrt{\frac{\tsum x^2}{N\tsum x^2 - (\tsum x)^2}} \\[1em]
+    \sigma_B = \sigma_y\sqrt{\frac{N}{N\tsum x^2 - (\tsum x)^2}}
   \end{gather*}
 \end{frame}
 
