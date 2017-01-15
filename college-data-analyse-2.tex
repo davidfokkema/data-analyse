@@ -43,6 +43,7 @@
 
 \renewcommand{\leadsto}{\ \rightarrow\ }
 \newcommand{\tsum}{\textstyle\sum}
+\newcommand{\rchisq}{\tilde\chi^2}
 
 
 \title{Statistische data-analyse 2}
@@ -256,6 +257,79 @@
 
 \begin{frame}{De computer kan alles}
   De computer is goed in dom rekenwerk, en kan verschillende waardes voor $A$ en $B$ blijven proberen, net zolang totdat de \emph{som van kwadraten} $h$ klein genoeg is! Dus óók functies die niet te fitten zijn met lineaire regressie (bv. $y = A\cdot e^{Bx}$) kun je zo alsnog fitten. Er zijn veel slimme algoritmes in omloop om snel de beste waardes te vinden.
+\end{frame}
+
+
+\section{$\chi^2$-test}
+
+\begin{frame}{Hoe goed is de fit?}
+  We minimaliseren
+  \begin{equation*}
+    h = \frac{\sum(y_i - A - Bx_i)^2}{{\sigma_{y_i}}^2} \equiv \chi^2
+  \end{equation*}
+  ofwel
+  \begin{equation*}
+    \chi^2 = \sum\left(\frac{\text{meetwaarde} - \text{verwachte waarde}}{\text{standaarddeviatie}}\right)^2
+  \end{equation*}
+  Hoe kleiner deze waarde is, hoe beter! Maar wat is een realistische waarde van $\chi^2$?
+\end{frame}
+
+\begin{frame}{Van $\chi^2$ naar $\rchisq$}
+  We hadden
+  \begin{equation*}
+    \sigma_y = \sqrt{\frac{1}{N-2}\sum(y_i - A - Bx_i)^2}
+  \end{equation*}
+  Dan is
+  \begin{equation*}
+    \chi^2 = \frac{\sum(y_i - A - Bx_i)^2}{{\sigma_{y_i}}^2} = N - 2
+  \end{equation*}
+  dus afhankelijk van het aantal meetpunten $N$. Handig is nu de \alert{gereduceerde $\chi^2$} als
+  \begin{equation*}
+    \rchisq = \frac{\chi^2}{N - 2} = 1
+  \end{equation*}
+  Als alles klopt hebben we dus een $\rchisq$-waarde van 1 gevonden in onze fit.
+\end{frame}
+
+\begin{frame}{Kanttekening}
+  \begin{itemize}
+    \item Om de kwaliteit van een fit te schatten moet je de standaarddeviatie niet achteraf uitrekenen (je gaat er dan namelijk al van uit dat je hypothese klopt en het verband geldig is)
+    \pause
+    \item Schat de standaarddeviatie vóóraf op basis van verwachte meetonzekerheden
+    \pause
+    \item Klopt je hypothese? Dan vind je $\rchisq \approx 1$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{$\chi^2$-test procedure}
+  \begin{itemize}
+    \item Schat meetonzekerheden $\sigma_{y_i}$
+    \item Doe een fit aan de verwachte functie $f(x)$
+    \item Bereken
+    \begin{equation*}
+      \chi^2 = \sum\left(\frac{y_i - f(x_i)}{\sigma_{y_i}}\right)^2
+    \end{equation*}
+    \item Bereken
+    \begin{equation*}
+      \rchisq = \frac{\chi^2}{N - p},
+    \end{equation*}
+    met $p$ het aantal parameters in de functie $f(x)$
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{$\chi^2$-test}
+  \begin{itemize}
+    \item $\rchisq \approx 1$: hypothese zeer waarschijnlijk juist
+    \item $\rchisq \gg 1$: hypothese zeer waarschijnlijk onjuist
+    \item $\rchisq \ll 1$: de fit valt wel héél mooi over de datapunten (+ onzekerheid!). De hypothese is juist (maar dan is de onzekerheid te groot geschat) óf een andere functie past misschien óók, en dan weet je dus niet welke er klopt...
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Van kwaliteit naar kwantitatief}
+  Leuk zo'n test, maar de opmerking dat $\rchisq \approx 1$ is wel behoorlijk vaag. Kunnen we dat kwantificeren? Ja, maar dan moeten we kijken naar wat voor $\rchisq$-waardes we verwachten als we het experiment vaak herhalen en de hypothese klopt.
+\end{frame}
+
+\begin{frame}[label=wip]{$\chi^2$-verdeling}
+  Oppervlakte onder limietverdeling geeft weer de kans dat de gemeten waarde in dat gebied ligt.
 \end{frame}
 
 \end{document}
