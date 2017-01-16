@@ -227,7 +227,7 @@
   \end{equation*}
   maar
   \begin{equation*}
-    h = \frac{\sum(y_i - A - Bx_i)^2}{{\sigma_{y_i}}^2}.
+    h = \sum\frac{(y_i - A - Bx_i)^2}{{\sigma_{y_i}}^2}.
   \end{equation*}
   Bij gelijke onzekerheden geldt
   \begin{equation*}
@@ -268,7 +268,7 @@
 \begin{frame}{Hoe goed is de fit?}
   We minimaliseren
   \begin{equation*}
-    h = \frac{\sum(y_i - A - Bx_i)^2}{{\sigma_{y_i}}^2} \equiv \chi^2
+    h = \sum\frac{(y_i - A - Bx_i)^2}{{\sigma_{y_i}}^2} \equiv \chi^2
   \end{equation*}
   ofwel
   \begin{equation*}
@@ -284,7 +284,7 @@
   \end{equation*}
   Dan is
   \begin{equation*}
-    \chi^2 = \frac{\sum(y_i - A - Bx_i)^2}{{\sigma_{y_i}}^2} = N - 2
+    \chi^2 = \frac{\sum(y_i - A - Bx_i)^2}{{\sigma_y}^2} = N - 2
   \end{equation*}
   dus afhankelijk van het aantal meetpunten $N$. Handig is nu de \alert{gereduceerde $\chi^2$} als
   \begin{equation*}
