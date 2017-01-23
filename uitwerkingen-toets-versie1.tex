@@ -1,0 +1,47 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[dutch]{babel}
+\usepackage{a4wide}
+\usepackage{fouriernc}
+
+\usepackage{amsmath}
+\usepackage[detect-none, list-final-separator={ en }, per-mode=symbol,
+            retain-explicit-plus, output-decimal-marker={,},
+            exponent-product={\cdot}, range-phrase={ tot }]{siunitx}
+
+
+\begin{document}
+\section*{Uitwerkingen toets data-analyse NP2 versie 1}
+
+\begin{enumerate}
+  \item (2 punten) $g = \SI[separate-uncertainty=true]{9,19 +- 0,18}{\meter\per\second\squared}$ of $g = \SI[separate-uncertainty=false]{9,19 +- 0,18}{\meter\per\second\squared}$.
+  \begin{itemize}
+    \item juiste notatie (aantal cijfers)
+    \item juiste eenheid
+  \end{itemize}
+  \item (2 punten) De $\tilde\chi^2$ is veel te groot (ongeveer 22) en de punten liggen niet willekeurig verspreid rond de lijn. De eerste vier punten liggen te hoog, de laatste vijf te laag. De lijn zou wat vlakker moeten lopen.
+  \begin{itemize}
+    \item inzicht dat de $\tilde\chi^2$ te groot is
+    \item inzicht dat er \emph{structuur} zichtbaar is in de data in plaats van willekeurige spreiding
+  \end{itemize}
+  \item (4 punten) We verwachten de waarde (invullen formule met fitparameters):
+  \begin{equation*}
+    T = 2\pi\sqrt{\frac{\num{0,40} + \num{0,04152}}{\num{9,87933}}} = \SI{1,33}{\second}.
+  \end{equation*}
+  We nemen waar: $T = \SI{1,38 +- 0,01}{\second}$. De afwijking is dus $\Delta T = \num{1,38} - \num{1,33} = \SI{0,05}{\second} = 5\sigma$. Uit Taylor Appendix B volgt dan dat $\text{Prob}(0 \leq \Delta T \leq 5\sigma) = \SI{49,99997}{\percent}.$ De kans op een dergelijke of grotere afwijking is dus $50 - \SI{49,99997}{\percent} = \SI{0,00003}{\percent}$. Dat is te verwaarlozen.
+  \begin{itemize}
+    \item berekening van de verwachte waarde
+    \item inzicht dat de afwijking $5\sigma$ bedraagt
+    \item aflezen waarde \SI{49,99997}{\percent} uit Taylor
+    \item completeren van het antwoord
+  \end{itemize}
+  \item (3 punten) We hebben nog negen meetpunten, en twee parameters, dus $d = 9 - 2 = 7$, met een $\tilde\chi^2 = \num{0,6}$. Op zoeken in Taylor Appendix D geeft dan een $p$-waarde van \SI{76}{\percent}. Dit betekent dat áls de hypothese klopt, de kans op een $\tilde\chi^2 \geq \num{0,6}$ gelijk is aan \SI{76}{\percent}. Dat is heel groot, dus het is zéér waarschijnlijk dat de hypothese klopt en het theoretisch verwachte verband geldig is.
+  \begin{itemize}
+    \item inzicht dat er 7 vrijheidsgraden zijn
+    \item opzoeken $p$-waarde in Taylor
+    \item uitleg betekenis $p$-waarde
+  \end{itemize}
+\end{enumerate}
+\end{document}
