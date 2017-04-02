@@ -1,0 +1,53 @@
+\documentclass[a4paper,12pt]{exam}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[dutch]{babel}
+\usepackage{cmbright}
+
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage[detect-none, list-final-separator={ en }, per-mode=symbol,
+            retain-explicit-plus, output-decimal-marker={,},
+            exponent-product={\cdot}, range-phrase={ tot }]{siunitx}
+\usepackage[font={small,sf},labelfont={bf},labelsep=endash]{caption}
+\usepackage{MnSymbol}
+\usepackage{relsize}
+\usepackage{physics}
+
+\graphicspath{{figures/}}
+
+\newcommand{\figref}[1]{Figuur~\ref{#1}}
+\renewcommand{\eqref}[1]{Vergelijking~\ref{#1}}
+\newcommand{\tabref}[1]{Tabel~\ref{#1}}
+
+\newcommand{\rchisq}{\ensuremath{\tilde\chi^2}}
+
+\header{\bfseries Toets data-analyse}{\bfseries NP2}{\bfseries Versie 1}
+\footer{}{}{\bfseries\iflastpage{Einde $\blacksquare$}{Lees verder $\filledmedtriangleright$}}
+
+
+\begin{document}
+\suppressfloats[t]
+\begin{questions}
+  \uplevel{Deze opgaven komen o.a. uit \emph{An introduction to error analysis}, John R. Taylor, 2nd ed. Voor enkele opgaves zijn er meetgegevens gegeven. Deze hoef je niet over te typen, maar kun je van blackboard halen. Daar staat een bestand getiteld \emph{gegevens-data-analyse-opgaven.csv} dat je in \emph{OriginPro} kunt importeren.}
+
+  \question Maak opgave 5.12 uit Taylor. Maak gebruik van de vergelijking voor de normale verdeling (Gauss distribution).
+
+  \question In Origin kun je een grafiek maken van een functie. Het idee van Origin is niet: `plot een functie', maar: `simuleer hoe een curve eruit ziet en door mijn datapunten loopt als ik niet eens datapunten heb'. Daarom is deze functie te vinden onder \textsmaller{ANALYSIS~$\rightarrow$ FITTING~$\rightarrow$ SIMULATE CURVE}. Je kunt dan kiezen voor een Gauss-verdeling, maar deze is in Origin gedefinieerd als:
+  \begin{equation*}
+    y = y_0 + \frac{A}{w\sqrt{\frac{\pi}{2}}} e^{-2\frac{(x-x_c)^2}{w^2}}.
+  \end{equation*}
+  \begin{parts}
+    \part Hoe is deze functie gerelateerd aan de definitie van de Gauss-verdeling volgens Taylor? Leg o.a. uit wat de constantes $y_0, A, w$ en $x_c$ betekenen.
+    \part Maak opgave 5.14 uit Taylor.
+  \end{parts}
+
+  \question Als een meting beschouwd kan worden als een trekking uit een Gauss-verdeling, dan geldt dat de kans om een meting te vinden met een waarde tussen $X - t\sigma$ en $X + t\sigma$ gegeven is door
+  \begin{equation*}
+    \text{Prob}(\text{binnen}\ t\sigma) = \int_{X-t\sigma}^{X+t\sigma} G_{X,\sigma}(x)\dd{x},
+  \end{equation*}
+  met $G_{X,\sigma}(x)$ de Gauss-verdeling met gemiddelde $X$ en standaarddeviatie $\sigma$.
+\end{questions}
+\textbf{\rule{5em}{1pt}}
+\end{document}
