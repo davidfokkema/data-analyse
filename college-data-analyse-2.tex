@@ -232,6 +232,22 @@
   \end{tikzpicture}}
 \end{frame}
 
+\begin{frame}{Fouten zijn belangrijk}
+  \begin{center}
+    \begin{tikzpicture}
+      % axis
+      \draw[thick,->] (0, 0) -- (6, 0) node[right] {$x$};
+      \draw[thick,->] (0, 0) -- (0, 4) node[above] {$y$};
+      \only<1>{\input{scripts/slide-fitten-van-lijn-4.out}}
+      \only<2>{\input{scripts/slide-fitten-van-lijn-5.out}}
+      \draw[red] (0, 1) -- (6, 3.4);
+    \end{tikzpicture}
+
+    \only<1>{Rechte lijn? Dat kan!}
+    \only<2>{Rechte lijn? Waarschijnlijk niet!}
+  \end{center}
+\end{frame}
+
 \begin{frame}{Vollediger: Normale Verdeling}
   Minimaliseer \alert{niet}:
   \begin{equation*}
