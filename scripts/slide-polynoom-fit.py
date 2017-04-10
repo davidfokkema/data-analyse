@@ -7,10 +7,9 @@ N = 7
 A = 1.
 B = .4
 std = .3
-yerr = .3
 
 
-def fit_polynoma(order=1):
+def fit_polynoma(order=1, yerr=.3, suffix=''):
     np.random.seed(1)
     x = np.linspace(.5, 5.5, N)
     y = A + B * x
@@ -29,7 +28,7 @@ def fit_polynoma(order=1):
     plot.set_ylimits(0, 5)
     plot.set_title("Orde: %d" % order)
     plot.set_label(r'$\tilde\chi^2 = %.1f$' % rchisq, location='upper left')
-    plot.save('scripts/slide-polynoom-fit-O-%d' % order)
+    plot.save('scripts/slide-polynoom-fit-O-%d%s' % (order, suffix))
 
 
 if __name__ == '__main__':
@@ -39,3 +38,4 @@ if __name__ == '__main__':
     fit_polynoma(4)
     fit_polynoma(5)
     fit_polynoma(6)
+    fit_polynoma(1, yerr=.5, suffix='-err')
