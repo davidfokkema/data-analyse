@@ -401,9 +401,30 @@
   \end{equation*}
   met $\rchisq_o$ de gemeten $\rchisq$-waarde. Meestal wordt de hypothese verworpen als $p < \num{0,05}$. Je mag zelf kiezen, als je maar de $\rchisq$-waarde vermeldt, liefst met $p$-waarde. Zo kan iedereen je conclusie controleren.
   \pause
-  Zie ook Appendix D in Taylor.
+  \alert{Zie ook Appendix D in Taylor.}
+
+  \pause
+  \alert{Noem de $p$-waarde in je verslag!}
 \end{frame}
 
+\begin{frame}{$\chi^2$-test}
+  Er wordt wel eens gezegd:
+  \begin{quote}
+    Als je een $p$-waarde hebt kleiner dan \num{0,05}, dan is de kans dat je de hypothese \alert{ten onrechte} verwerpt kleiner dan \SI{5}{\percent}.
+  \end{quote}
+
+  \pause
+  Voorbeeld: we denken dat ons verband een rechte lijn is, maar we krijgen een $p$-waarde van \num{0,04}. Dan is de kans dat het een rechte lijn is \alert{en onze metingen kloppen} heel klein. We verwerpen dus deze hypothese. Is de kans dat het tóch een rechte lijn is nu \SI{4}{\percent}?
+
+  \pause
+  \begin{tikzpicture}[remember picture, overlay]
+    \node [yshift=3em,rotate=20,scale=10,red,text opacity=.5]
+    at (current page.center) {NEE!};
+  \end{tikzpicture}
+
+  \pause
+  (Of de natuur zich op een bepaalde manier gedraagt is een \alert{feit}, geen kans.)
+\end{frame}
 
 \section*{Samenvatting}
 
