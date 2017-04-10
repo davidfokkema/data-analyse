@@ -193,6 +193,12 @@
     \end{tikzpicture}
   \end{center}
   Als het verwachte verband inderdaad geldt, dan vormt de lijn de \alert{werkelijke waarden}, en zijn de metingen normaal verdeeld rondom die waardes. De afwijkingen $\Delta y_i = y_i - A - Bx_i$ zouden dan dus normaal verdeeld moeten zijn. We kunnen de standaarddeviatie dan vergelijken met de door ons geschatte meetfouten. Klopt dat? Fijn!
+  \uncover<2->{
+  \begin{tikzpicture}[remember picture, overlay]
+    \draw[fill=white,opacity=.7] (current page.south west) rectangle (current page.north east);
+    \node [rotate=10,scale=2,red,text width=.6\linewidth,align=center]
+    at (current page.center) {ALLEEN als onzekerheden gelijk zijn voor alle punten.};
+  \end{tikzpicture}}
 \end{frame}
 
 \begin{frame}{Controle: Schatting Fout}
