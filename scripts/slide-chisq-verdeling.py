@@ -6,9 +6,8 @@ np.random.seed(1)
 
 A = 1
 B = .4
-N = 7
 
-def make_dataset(std, plot=False, suffix=''):
+def make_dataset(std, plot=False, suffix='', N=7):
     f = lambda x: A + B * x
 
     xdata = np.linspace(.5, 5.5, N)
@@ -33,13 +32,10 @@ def make_dataset(std, plot=False, suffix=''):
     return rchisq
 
 
-if __name__ == '__main__':
-    for i in range(1, 6):
-        make_dataset(.3, plot=True, suffix=str(i))
-
+def plot_chisq_histogram(N):
     rchisq = []
     for i in range(10000):
-        rchisq.append(make_dataset(.3))
+        rchisq.append(make_dataset(.3, N=N))
 
     plot = artist.Plot(width=r'.5\linewidth')
     n, bins = np.histogram(rchisq, bins=np.linspace(0, 6, 20))
@@ -48,4 +44,15 @@ if __name__ == '__main__':
     plot.set_ylabel('$N$')
     plot.set_xlimits(0, 6)
     plot.set_ylimits(min=0)
-    plot.save('scripts/slide-chisq-histogram')
+    plot.set_label("$N=%d$" % N)
+    plot.save('scripts/slide-chisq-histogram-N-%d' % N)
+
+
+if __name__ == '__main__':
+    for i in range(1, 6):
+        make_dataset(.3, plot=True, suffix=str(i))
+
+    plot_chisq_histogram(3)
+    plot_chisq_histogram(5)
+    plot_chisq_histogram(7)
+    plot_chisq_histogram(14)

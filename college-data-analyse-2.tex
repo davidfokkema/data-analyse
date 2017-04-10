@@ -295,7 +295,7 @@
 
 \section{$\chi^2$-test}
 
-\begin{frame}[label=wip]{Hoe goed is de fit?}
+\begin{frame}{Hoe goed is de fit?}
   Maar hoe weten we hoe \emph{goed} de fit is? We minimaliseerden net
   \begin{equation*}
     h = \sum\frac{(y_i - A - Bx_i)^2}{{\sigma_{y_i}}^2} \equiv \chi^2
@@ -378,7 +378,14 @@
 
 \begin{frame}{$\chi^2$-verdeling}
   \begin{center}
-    \input{scripts/slide-chisq-histogram}
+    \only<1>{\input{scripts/slide-chisq-histogram-N-3}}
+
+    \only<2>{\input{scripts/slide-chisq-histogram-N-5}}
+
+    \only<3>{\input{scripts/slide-chisq-histogram-N-7}}
+
+    \only<4>{\input{scripts/slide-chisq-histogram-N-14}}
+
   \end{center}
   Oppervlakte onder limietverdeling geeft weer de kans dat de gemeten waarde in dat gebied ligt.
 \end{frame}
