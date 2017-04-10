@@ -24,7 +24,7 @@
 
 \usepackage[dutch]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage{lmodern}
+\usepackage{cmbright}
 \usepackage[T1]{fontenc}
 
 \usepackage{mathtools}
@@ -34,9 +34,10 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.10}
 \usepackage[detect-family,output-decimal-marker={,}]{siunitx}
-\usepackage[eulergreek]{sansmath}
-\sisetup{text-sf=\sansmath}
+% \usepackage[eulergreek]{sansmath}
+% \sisetup{text-sf=\sansmath}
 \usepackage{relsize}
+\newenvironment{sansmath}{}{}
 
 
 \graphicspath{{figures/}}
