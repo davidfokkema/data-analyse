@@ -224,6 +224,12 @@
     \sigma_A = \sigma_y\sqrt{\frac{\tsum x^2}{N\tsum x^2 - (\tsum x)^2}} \\[1em]
     \sigma_B = \sigma_y\sqrt{\frac{N}{N\tsum x^2 - (\tsum x)^2}}
   \end{gather*}
+  \uncover<2->{
+  \begin{tikzpicture}[remember picture, overlay]
+    \draw[fill=white,opacity=.7] (current page.south west) rectangle (current page.north east);
+    \node [rotate=10,scale=2,red,text width=.6\linewidth,align=center]
+    at (current page.center) {ALLEEN als onzekerheden gelijk zijn voor alle punten.};
+  \end{tikzpicture}}
 \end{frame}
 
 \begin{frame}{Vollediger: Normale Verdeling}
