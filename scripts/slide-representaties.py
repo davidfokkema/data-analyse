@@ -1,3 +1,5 @@
+from itertools import zip_longest
+
 import numpy as np
 from scipy.stats import norm
 
@@ -29,12 +31,24 @@ def plot_histogram(N, suffix, Nbins=10, ymax=None, draw_distribution=False):
     plot.save('scripts/slide-representaties-histogram-%s.tex' % suffix)
 
 
+# From itertools recipes
+def grouper(iterable, n, fillvalue=None):
+    "Collect data into fixed-length chunks or blocks"
+    # grouper('ABCDEFG', 3, 'x') --> ABC DEF Gxx"
+    args = [iter(iterable)] * n
+    return zip_longest(*args, fillvalue=fillvalue)
+
+
 if __name__ == '__main__':
     np.random.seed(1)
     x = np.random.normal(0, 1., 49)
 
     with open('scripts/slide-representaties-numbers.out', 'w') as f:
-        f.write('\quad'.join(['%.3f' % u for u in x]))
+        f.write('\\begin{tabular}{*{7}{S[table-format=+1.3]}}\n')
+        for row in grouper(x, 7):
+            f.write(' & '.join(['%.3f' % u for u in row]))
+            f.write(' \\\\ \n')
+        f.write('\\end{tabular}\n')
 
     with open('scripts/slide-representaties-getallenlijn.out', 'w') as f:
         for u in x:
