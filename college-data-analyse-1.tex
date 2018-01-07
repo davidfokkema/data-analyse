@@ -241,6 +241,9 @@
   \begin{center}
     \begin{tikzpicture}
       \draw[thick] (-5, 0) -- (5, 0);
+      \foreach \x in {-4, -3, ..., 4} {
+        \draw[thick] (\x, -15pt) -- (\x, -20pt) node[below] {\x};
+      }
       \path (0, 35pt) -- (0, -20pt);
       \input{scripts/slide-representaties-getallenlijn.out}
     \end{tikzpicture}
