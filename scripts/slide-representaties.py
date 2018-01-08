@@ -17,6 +17,10 @@ def plot_histogram(N, suffix, Nbins=10, ymax=None, draw_distribution=False):
 
     plot = artist.Plot(width=r'.5\linewidth')
     plot.histogram(n, bins)
+
+    x = (bins[1:] + bins[:-1]) / 2
+    plot.plot(x, n, yerr=np.sqrt(n), linestyle=None, markstyle='scale=.5')
+
     if draw_distribution:
         x = np.linspace(-4, 4, 50)
         y = (8. / Nbins) * N * norm.pdf(x, loc=0, scale=1.)
