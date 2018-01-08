@@ -19,12 +19,18 @@
 
   % \setbeamercovered{transparent}
   % or whatever (possibly just delete it)
+
+  \setbeamertemplate{footline}
+  {
+    \begin{beamercolorbox}[wd=\paperwidth,right,sep=1ex]{beamer color}
+      \insertframenumber
+    \end{beamercolorbox}
+  }
 }
 
 
 \usepackage[dutch]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage{cmbright}
 \usepackage[T1]{fontenc}
 
 \usepackage{mathtools}

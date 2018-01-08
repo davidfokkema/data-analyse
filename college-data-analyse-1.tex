@@ -14,16 +14,23 @@
 \mode<presentation>
 {
   \usetheme{Pittsburgh}
+  \setbeamertemplate{navigation symbols}{}
   % or ...
 
   % \setbeamercovered{transparent}
   % or whatever (possibly just delete it)
+  
+  \setbeamertemplate{footline}
+  {
+    \begin{beamercolorbox}[wd=\paperwidth,right,sep=1ex]{beamer color}
+      \insertframenumber
+    \end{beamercolorbox}
+  }
 }
 
 
 \usepackage[dutch]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage{times}
 \usepackage[T1]{fontenc}
 
 \usepackage{mathtools}
@@ -33,9 +40,10 @@
 \usepackage{pgfplots}
 \pgfplotsset{compat=1.10}
 \usepackage[detect-family]{siunitx}
-\usepackage[eulergreek]{sansmath}
-\sisetup{text-sf=\sansmath}
+% \usepackage[eulergreek]{sansmath}
+% \sisetup{text-sf=\sansmath}
 \usepackage{relsize}
+\newenvironment{sansmath}{}{}
 
 
 \graphicspath{{figures/}}
