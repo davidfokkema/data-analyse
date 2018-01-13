@@ -124,9 +124,9 @@
     \pause
     \item Voorbeeld (volume van een gas bij verschillende temperaturen, bij constante druk):
     \begin{equation*}
-      V = \mathrm{const}\cdot T + V_0,
+      V = V_0 + cT,
     \end{equation*}
-    met $V$ het volume, $T$ de temperatuur van het gas in \si{\celsius}, en $V_0$ het volume van het gas bij \SI{0}{\celsius}.
+    met $V$ het volume, $T$ de temperatuur van het gas in \si{\celsius}, $V_0$ het volume van het gas bij \SI{0}{\celsius}, en $c$ een constante.
   \end{itemize}
 \end{frame}
 
@@ -211,18 +211,18 @@
 \begin{frame}{Controle: Schatting Fout}
   Gemiddelde:
   \begin{equation*}
-    \bar x = \frac{1}{N}\sum x_i  \tag{0 parameters}
+    \bar x = \frac{1}{\alert<3->{N}}\sum x_i \alt<2->{\tag{0 parameters}}{\phantom{\text{(0 parameters)}}}
   \end{equation*}
   Standaarddeviatie normale verdeling:
   \begin{equation*}
-    \sigma = \sqrt{\frac{1}{N-1}\sum(x_i - \bar x)^2} \tag{1 parameter}
+    \sigma = \sqrt{\frac{1}{\alert<3->{N-1}}\sum(x_i - \bar x)^2} \alt<2->{\tag{1 parameter}}{\phantom{\text{(1 parameter)}}}
   \end{equation*}
   Schatting meetonzekerheid:
   \begin{equation*}
-    \sigma_y = \sqrt{\frac{1}{N-2}\sum(y_i - A - Bx_i)^2} \tag{2 parameters}
+    \sigma_y = \sqrt{\frac{1}{\alert<3->{N-2}}\sum(y_i - A - Bx_i)^2} \alt<2->{\tag{2 parameters}}{\phantom{\text{(2 parameters)}}}
   \end{equation*}
-  \pause
-  De factor $N - p$, met $p$ het aantal geschatte parameters, wordt nog belangrijk!
+  \onslide<4->
+  De factor \alert{$N - p$}, met $p$ het aantal geschatte parameters, wordt nog belangrijk!
 \end{frame}
 
 \begin{frame}{Onzekerheden op $A$ en $B$}
