@@ -258,12 +258,13 @@
 \begin{frame}{Vollediger: Normale Verdeling}
   Minimaliseer \alert{niet}:
   \begin{equation*}
-    g = \sum(y_i - A - Bx_i)^2,
+    g = \sum\Delta y_i^2 \uncover<2->{= \sum(y_i - A - Bx_i)^2,}
   \end{equation*}
   maar
   \begin{equation*}
-    h = \sum\frac{(y_i - A - Bx_i)^2}{{\sigma_{y_i}}^2}.
+    h = \sum\left(\frac{\Delta y_i}{\sigma_{y_i}}\right)^{\!\!2} \uncover<2->{= \sum\frac{(y_i - A - Bx_i)^2}{{\sigma_{y_i}}^2}.}
   \end{equation*}
+  \onslide<3->
   Bij gelijke onzekerheden geldt
   \begin{equation*}
     h = \frac{1}{{\sigma_y}^2}\sum(y_i - A - Bx_i)^2,
@@ -305,27 +306,32 @@
   \begin{equation*}
     h = \sum\frac{(y_i - A - Bx_i)^2}{{\sigma_{y_i}}^2} \equiv \chi^2
   \end{equation*}
+  \pause
   ofwel
   \begin{equation*}
-    \chi^2 = \sum\left(\frac{\text{meetwaarde} - \text{verwachte waarde}}{\text{standaarddeviatie}}\right)^2
+    \chi^2 = \sum\left(\frac{\text{meetwaarde} - \text{verwachte waarde}}{\text{standaarddeviatie}}\right)^{\!\!2}
   \end{equation*}
   Hoe kleiner deze waarde is, hoe beter! Maar wat is een realistische waarde van $\chi^2$?
 \end{frame}
 
 \begin{frame}{Van $\chi^2$ naar $\rchisq$}
-  We hadden
+  We hadden, bij een gelijke standaarddeviatie voor alle punten,
   \begin{equation*}
-    \sigma_y = \sqrt{\frac{1}{N-2}\sum(y_i - A - Bx_i)^2}
+    \sigma_y = \sqrt{\frac{1}{N-\alert{2}}\sum(y_i - \alert{A} - \alert{B}x_i)^2}
   \end{equation*}
+  \pause
   Dan is
   \begin{equation*}
-    \chi^2 = \frac{\sum(y_i - A - Bx_i)^2}{{\sigma_y}^2} = N - 2
+    \chi^2 = \frac{\sum(y_i - \alert{A} - \alert{B}x_i)^2}{{\sigma_y}^2} = N - \alert{2}
   \end{equation*}
-  dus afhankelijk van het aantal meetpunten $N$. Handig is nu de \alert{gereduceerde $\chi^2$} als
+  dus afhankelijk van het aantal meetpunten $N$.
+  \pause
+  Handig is nu de \alert{gereduceerde $\chi^2$}, gedefinieerd als
   \begin{equation*}
     \rchisq = \frac{\chi^2}{N - 2} = 1
   \end{equation*}
-  Als alles klopt hebben we dus een $\rchisq$-waarde van 1 gevonden in onze fit.
+  \pause
+  Als alles klopt hebben we dus een $\rchisq$-waarde van 1 gevonden in onze fit. (Zelfs als de standaarddeviaties verschillend zijn, maar dan is het lastiger aan te tonen.)
 \end{frame}
 
 \begin{frame}{Kanttekening}
@@ -366,7 +372,7 @@
   Leuk zo'n test, maar de opmerking dat $\rchisq \approx 1$ is wel behoorlijk vaag. Kunnen we dat kwantificeren? Ja, maar dan moeten we kijken naar wat voor $\rchisq$-waardes we verwachten als we het experiment vaak herhalen en de hypothese klopt.
 \end{frame}
 
-\begin{frame}{$\chi^2$-verdeling}
+\begin{frame}{$\tilde\chi^2$-verdeling}
   \begin{center}
     \only<1>{\input{scripts/plot-chisq-1}}
 
@@ -381,7 +387,7 @@
   \end{center}
 \end{frame}
 
-\begin{frame}{$\chi^2$-verdeling}
+\begin{frame}{$\tilde\chi^2$-verdeling}
   \begin{center}
     \only<1>{\input{scripts/slide-chisq-histogram-N-3}}
 
@@ -404,8 +410,12 @@
   \begin{equation*}
     p = \text{Prob}(\rchisq \geq \rchisq_o)
   \end{equation*}
-  met $\rchisq_o$ de gemeten $\rchisq$-waarde. Meestal wordt de hypothese verworpen als $p < \num{0,05}$. Je mag zelf kiezen, als je maar de $\rchisq$-waarde vermeldt, liefst met $p$-waarde. Zo kan iedereen je conclusie controleren.
+  met $\rchisq_o$ de gemeten $\rchisq$-waarde. Meestal wordt de hypothese verworpen als $p < \num{0,05}$. De afwijking tussen je metingen en de verwachting zijn dan significant groot. Je mag zelf kiezen, als je maar de $\rchisq$-waarde vermeldt, liefst met $p$-waarde. Zo kan iedereen je conclusie controleren.
   \pause
+
+  Het is helaas lastiger om te zeggen wanneer je je hypothese mag accepteren als \alert{waar}.
+  \pause
+
   \alert{Zie ook Appendix D in Taylor.}
 
   \pause

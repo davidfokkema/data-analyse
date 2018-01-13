@@ -24,7 +24,7 @@ def make_dataset(std, plot=False, suffix='', N=7):
         plot.plot(x2, f(x2), mark=None)
         plot.set_xlabel('x')
         plot.set_ylabel('y')
-        plot.set_label(r'$\tilde\chi^2 = %.1f$' % rchisq)
+        plot.set_label(r'$\tilde\chi^2 = \num{%.1f}$' % rchisq)
         plot.set_xlimits(0, 6)
         plot.set_ylimits(0, 5)
         plot.save('scripts/plot-chisq-%s.tex' % suffix)
